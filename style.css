@@ -92,44 +92,13 @@
     padding: 25px;
     border-radius: 6px 0 5px 0;
 }
-.line-art-top-about{
-  position: absolute;
-  top: 89px;
-  left: 50%;
-  transform: translateX(-50%) rotate(0deg);
-  max-width: 35px;
-}
 
-.line-art-bottom-about{
-  position: absolute;
-  top: 624px;
-  left: 50%;
-  -webkit-transform: translateX(-50%) rotate(90deg);
-  transform: translateX(-50%) rotate(0deg);
-  max-width: 35px;
-}
-  
   .forma{
       border:1px solid var(--color-text);
       padding: 25px;
       border-radius: 6px 0 5px 0;
   }
-  .line-art-top-forma {
-    position: absolute;
-    top: 1212px;
-    left: 50%;
-    transform: translateX(-50%) rotate(0deg);
-    max-width: 35px;
-}
 
-.line-art-bottom-forma{
-    position: absolute;
-    top: 1683px;
-    left: 50%;
-    -webkit-transform: translateX(-50%) rotate(90deg);
-    transform: translateX(-50%) rotate(0deg);
-    max-width: 35px;
-}
 .lang{
     border:1px solid var(--color-text);
     padding: 25px;
@@ -146,23 +115,7 @@
     padding: 25px;
     border-radius: 6px 0 5px 0;
 }
-.line-art-top-exp{
-    position: absolute;
-    bottom: 1473px;
-    left: 50%;
-    -webkit-transform: translateX(-50%) rotate(90deg);
-    transform: translateX(-50%) rotate(0deg);
-    max-width: 35px;
-}
 
-.line-art-bottom-exp{
-    position: absolute;
-    bottom: 747px;
-    left: 50%;
-    -webkit-transform: translateX(-50%) rotate(90deg);
-    transform: translateX(-50%) rotate(0deg);
-    max-width: 35px;
-}
 .perso{
     border:1px solid var(--color-text);
     padding: 25px;
@@ -434,9 +387,9 @@ label:active:after {
   }
 
   label{
-    -webkit-transform: rotate(90deg);
+    position: relative;
     transform: rotate(90deg);
-    margin-left: 6.7px;
+
 }
 
   .inner section
@@ -444,45 +397,11 @@ label:active:after {
       margin:45px auto;
   }
   .toggle{
-    padding:15px 0 0 0;
-    margin-left: 10px;
-    max-width: 52px;
+    padding: 10px 0px 0px 16px;
+    margin-bottom: 0px;
+    max-width: 62px;
 }
 
-  /*little details 'but importants :)'*/
-  .line-art-top-forma {
-    position: relative;
-    top: -4.8vh;
-  
-}
-.line-art-bottom-forma{
-    position: relative;
-    top:4.9vh;
-    
-}
-
-.line-art-top-about{
-    position: relative;
-    top: -4.7vh;
-  
-}
-.line-art-bottom-about{
-    position: relative;
-    top:4.8vh;
-    
-}
-
-.line-art-top-exp{
-    position: relative;
-    top: -4.8vh;
-    transform: translateX(-50%) rotate(0deg);
-}
-
-.line-art-bottom-exp{
-    position: relative;
-    top:4.9vh;
-    transform: translateX(-50%) rotate(0deg);
-}
 
   
   @media screen and (max-width: 75em) {
@@ -494,6 +413,11 @@ label:active:after {
   @media screen and (max-width: 60em) {
       body
   { font-size:14px;}
+
+  .toggle{
+    padding: 6px 0px 0px 16px;
+    max-width: 62px;
+}
   }
   .clearfix:after {
      content: " "; 
