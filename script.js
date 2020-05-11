@@ -1,34 +1,43 @@
-// Some code thanks to @chrisgannon
+const html = document.querySelector("html")
+const checkbox = document.querySelector("input[name=theme]")
 
-var select = function(s) {
-    return document.querySelector(s);
-  }
+const getStyle = (element, style) => 
+    window
+        .getComputedStyle(element)
+        .getPropertyValue(style)
+
+
+const initialColors = { 
   
-  function randomBetween(min,max)
-  {
-      var number = Math.floor(Math.random()*(max-min+1)+min);
+    bg: getStyle(html, "--bg"),
+    colorHeadings: getStyle(html, "--color-headings"),
+    colorText: getStyle(html, "--color-text"),
+    colorGrey: getStyle(html, "--color-grey"),
+    colorButtom: getStyle(html, "--color-buttom")
+
+}
+
+const darkMode = {
     
-      if ( number !== 0 ){
-        return number;
-      }else {
-        return 0.5;
-      }
-  }
-  
-  var tl = new TimelineMax();
-  
-  for(var i = 0; i < 20; i++){
-  
-    var t = TweenMax.to(select('.bubble' + i), randomBetween(1, 1.5), {
-      x: randomBetween(12, 15) * (randomBetween(-1, 1)),
-      y: randomBetween(12, 15) * (randomBetween(-1, 1)), 
-      repeat:-1,
-      repeatDelay:randomBetween(0.2, 0.5),
-      yoyo:true,
-      ease:Elastic.easeOut.config(1, 0.5)
-    })
-  
-    tl.add(t, (i+1)/0.6)
-  }
-  
-  tl.seek(50);
+    bg: "#393939",
+    colorHeadings: "#858585",
+    colorText: "#cccccc",
+    colorGrey: "#939393",
+    colorButtom: "#339fff"
+
+}
+
+const transformKey = key => 
+    "--" + key.replace(/([A-Z])/, "-$1").toLowerCase()
+
+
+const changeColors = (colors) => {
+    Object.keys(colors).map(key => 
+        html.style.setProperty(transformKey(key), colors[key]) 
+    )
+}
+
+
+checkbox.addEventListener("change", ({target}) => {
+    target.checked ? changeColors(darkMode) : changeColors(initialColors)
+})
